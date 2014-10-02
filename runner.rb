@@ -7,21 +7,6 @@ class Runner
     @run_id = SecureRandom.uuid
   end
 
-  def self.step(name)
-    puts "running step #{name}"
-    start_at = Time.now
-    @klass.name
-    SCALE_FACTOR.times do
-      yield
-    end
-    done_at = Time.now
-    puts "completed step #{name}"
-    Step.create(run_id: @run_id,
-                mode: @klass.name,
-                step: name,
-                duration: done_at - start_at)
-  end
-
   def run
     clean_up
     step :create do
@@ -48,5 +33,23 @@ class Runner
   def clean_up
     @klass.truncate
   end
+
+  private
+
+  def step(name)
+    puts "running step #{name}"
+    start_at = Time.now
+    @klass.name
+    SCALE_FACTOR.times do
+      yield
+    end
+    done_at = Time.now
+    puts "completed step #{name}"
+    Step.create(run_id: @run_id,
+                mode: @klass.name,
+                step: name,
+                duration: done_at - start_at)
+  end
+
 end
 
