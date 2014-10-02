@@ -45,7 +45,7 @@ class Runner
       @klass[@item_ids.sample].update_unencrypted
     end
 
-    step :update_encrypted
+    step :update_encrypted do
       @klass[@item_ids.sample].update_encrypted
     end
   end
