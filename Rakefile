@@ -1,6 +1,8 @@
 require "bundler"
 Bundler.setup
 require 'pg'
+require 'sequel'
+require 'fernet'
 
 DB = Sequel.connect(ENV['DATABASE_URL'])
 
