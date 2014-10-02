@@ -8,12 +8,14 @@ class Runner
   end
 
   def self.step(name)
+    puts "running step #{name}"
     start_at = Time.now
     @klass.name
     SCALE_FACTOR.times do
       yield
     end
     done_at = Time.now
+    puts "completed step #{name}"
     Step.create(run_id: @run_id,
                 mode: @klass.name,
                 step: name,
