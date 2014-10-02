@@ -28,9 +28,8 @@ namespace :db do
     require 'logger'
     require 'sequel'
     require 'sequel/extensions/migration'
-    database_url = ENV['DATABASE_URL'] || 'postgres:///shogun'
-    target_version = ENV['VERSION'].to_i if ENV['VERSION']
+    database_url = ENV['DATABASE_URL']
     DB = Sequel.connect(database_url, loggers: Logger.new(STDOUT))
-    Sequel::Migrator.apply(DB, 'migrations', target_version)
+    Sequel::Migrator.apply(DB, 'migrations')
   end
 end
