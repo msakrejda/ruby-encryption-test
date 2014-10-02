@@ -7,12 +7,16 @@ DB = Sequel.connect(ENV['DATABASE_URL'])
 namespace :encrypt do
   task :test_fernet do
     require_relative './...'
-    Runner.new(FernetEncypted).run
+    loop do
+      Runner.new(FernetEncypted).run
+    end
   end
 
   task :test_asym do
     require_relative './...'
-    Runner.new(AsymEncrypted).run
+    loop do
+      Runner.new(AsymEncrypted).run
+    end
   end
 end
 
