@@ -22,12 +22,7 @@ class Runner
                 duration: done_at - start_at)
   end
 
-  def run_step(name)
-    raise StandardError, "No such step (#{state})" unless self.class.states[state]
-    self.instance_eval(&self.class.states[state])
-  end
-
-  def run_suite
+  def run
     clean_up
     step :create do
       @item_ids << @klass.create.uuid
