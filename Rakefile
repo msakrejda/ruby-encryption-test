@@ -16,7 +16,7 @@ namespace :encrypt do
 
   task :test_fernet do
     loop do
-      Runner.new(FernetEncypted).run
+      Runner.new(FernetEncrypted).run
     end
   end
 
