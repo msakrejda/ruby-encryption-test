@@ -1,4 +1,6 @@
-class AsymEncrypted < Secret
+class AsymEncrypted < Sequel::Model
+  include Secret
+
   def key
     @key ||= OpenSSL::PKey::RSA.new(File.read("mykey.pem"))
   end

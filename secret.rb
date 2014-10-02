@@ -1,5 +1,4 @@
-class Secret < Sequel::Model
-
+module Secret
   def generate_secret
     "postgres://#{rand_ch(15)}:#{rand_ch(15)}@#{host}:#{rand(1000) + 5432}/#{rand_ch(15)}"
   end
@@ -31,5 +30,4 @@ class Secret < Sequel::Model
   def host
     "ec2-#{rand(255)}-#{rand(255)}-#{rand(255)}-#{rand(255)}.compute-1.amazonaws.com"
   end
-
 end
