@@ -1,0 +1,35 @@
+GIT
+  remote: git://github.com/hgmnz/fernet.git
+  revision: 0f05614f493e09fef142a95f44781dc4758b1573
+  specs:
+    fernet (2.1)
+      valcro (= 0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.1.0)
+    method_source (0.8.2)
+    pg (0.17.1)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    rake (10.3.2)
+    sequel (4.13.0)
+    sequel_pg (1.6.10)
+      pg (>= 0.8.0)
+      sequel (>= 3.39.0)
+    slop (3.6.0)
+    valcro (0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  fernet!
+  pg
+  pry
+  rake
+  sequel (~> 4.13.0)
+  sequel_pg
