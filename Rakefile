@@ -7,15 +7,20 @@ require 'fernet'
 DB = Sequel.connect(ENV['DATABASE_URL'])
 
 namespace :encrypt do
+  require_relative './secret'
+  require_relative './fernet_encrypted'
+  require_relative './asym_encrypted'
+  require_relative './step'
+  require_relative './runner'
+
+
   task :test_fernet do
-    require_relative './...'
     loop do
       Runner.new(FernetEncypted).run
     end
   end
 
   task :test_asym do
-    require_relative './...'
     loop do
       Runner.new(AsymEncrypted).run
     end
