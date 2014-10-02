@@ -8,6 +8,6 @@ class FernetEncrypted < Sequel::Model
   end
 
   def decrypt(value)
-    Fernet.verifier(SECRET, value).message
+    Fernet.verifier(SECRET, value, enforce_ttl: false).message
   end
 end
