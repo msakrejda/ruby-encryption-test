@@ -13,7 +13,7 @@ Sequel.migration do
       uuid :uuid, default: Sequel.function(:uuid_generate_v4), primary_key: true
       timestamptz  :created_at, default: Sequel.function(:now), null: false
       text :unencrypted
-      text :encrypted
+      bytea :encrypted
     end
 
     create_table(:steps) do
