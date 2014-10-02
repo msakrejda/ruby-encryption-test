@@ -1,5 +1,7 @@
 Sequel.migration do
-  change do
+  up do
+    execute 'CREATE EXTENSION IF NOT EXISTS "uuid-ossp"'
+
     create_table(:fernet_encrypteds) do
       uuid :uuid, default: Sequel.function(:uuid_generate_v4), primary_key: true
       timestamptz  :created_at, default: Sequel.function(:now), null: false
@@ -19,7 +21,7 @@ Sequel.migration do
       uuid :run_id, null: false
       text :mode, null: false
       text :step, null: false
-      float8 duration, null: false
+      float8 :duration, null: false
     end
   end
 end
